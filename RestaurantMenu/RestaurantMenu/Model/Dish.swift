@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Dish: Codable, Hashable, Identifiable {
   var id: Int
@@ -14,4 +15,10 @@ struct Dish: Codable, Hashable, Identifiable {
   var cuisine: String
   var price: Int
   var imageName: String
+}
+
+extension Dish {
+    var image: Image {
+        RestaurantImageStore.shared.image(name: imageName)
+    }
 }
